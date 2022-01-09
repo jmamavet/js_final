@@ -362,8 +362,9 @@ function eliminarEntrada(idEntrada) {
     localStorage.setItem("Entradas", JSON.stringify(carrito));
     let nuevoTotal = calcularTotal();
 
-    // Si el total es 0 oculto el total y deshabilito el boton de Finalizar Compra, sino actualizo el valor y me aseguro que quede habilitado
+    // Si el total es 0 oculto el total, vacio el localStorage y deshabilito el boton de Finalizar Compra, sino actualizo el valor y me aseguro que quede habilitado
     if (nuevoTotal == 0) {
+        localStorage.clear();
         $("#totalCompra").fadeOut();
         $("#finalizarCompra").prop("disabled", true);
     } else {
